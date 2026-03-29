@@ -19,8 +19,8 @@ public class ShoppingCart{
 
     public void print(){
         
-        for (String product: ShoppingCart.keySet()) {
-            System.out.println(product);
+        for (Item product: ShoppingCart.values()) {
+            System.out.println(product.toString());
         } 
     }
 }

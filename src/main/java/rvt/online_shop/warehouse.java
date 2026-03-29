@@ -35,6 +35,7 @@ public class warehouse {
                     return true;
                 }
             else{
+                System.out.println("The product is not available or is out of stock");
                 return false;
             }
         }
