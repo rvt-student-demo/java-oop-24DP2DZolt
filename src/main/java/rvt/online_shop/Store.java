@@ -32,7 +32,10 @@ public class Store {
             // Add code here that adds the product to the cart,
             // If there is any in the warehouse, and reduces the stock in the warehouse
             // Don't touch any of the other code!
-            cart.add(product, warehouse.price(product));
+            
+            if(warehouse.take(product)){
+             cart.add(product, warehouse.price(product));
+            }
 
         }
 

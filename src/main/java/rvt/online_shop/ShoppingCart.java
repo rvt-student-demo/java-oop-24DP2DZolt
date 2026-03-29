@@ -7,14 +7,17 @@ public class ShoppingCart{
 
     Map<String, Item> ShoppingCart = new HashMap<>();
     int total = 0;
+    warehouse isInWarehouse = new warehouse();
     public void add(String product, int price){
-        if(ShoppingCart.containsKey(product)){
-            ShoppingCart.get(product).increaseQuantity();
-        }else{
-            Item item = new Item(product, 1, price);
-            total += item.price();
-            ShoppingCart.put(product, item);
-        }
+           
+                if(ShoppingCart.containsKey(product)){
+                    ShoppingCart.get(product).increaseQuantity();
+                    total += price;
+                }else{
+                    Item item = new Item(product, 1, price);
+                    total += item.price();
+                    ShoppingCart.put(product, item);
+                }
        
     }
 
