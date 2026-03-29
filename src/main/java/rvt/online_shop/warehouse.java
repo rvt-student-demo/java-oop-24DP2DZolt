@@ -1,20 +1,45 @@
 package rvt.online_shop;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 public class warehouse {
     Map<String, Integer> products = new HashMap<>();
+    Map<String, Integer> products_stock = new HashMap<>();
 
-    public void warehouse(){
-        
-    }
 
     public void addProduct(String product, int price, int stock){
         products.put(product, price);
+        products_stock.put(product, stock);
     }
 
     public int price(String product){
-        return products.get(product);
+        if(products.containsKey(product)){
+            return -99;
+        }else{
+             return products.get(product);
+        }
+       
     }
 
-}
+    public int stock(String product){
+        if(products_stock.containsKey(product)){
+            return products_stock.get(product);
+        }else{
+            return 0;
+        }
+    }
+
+    public boolean take(String product){
+             if (products_stock.containsKey(product) && products_stock.get(product) > 0){
+                    products_stock.replace(product, products_stock.get(product)-1);
+                    return true;
+                }
+            else{
+                return false;
+            }
+        }
+
+   
+    }
+
 
