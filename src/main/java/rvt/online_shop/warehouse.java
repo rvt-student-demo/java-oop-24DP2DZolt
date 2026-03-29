@@ -14,9 +14,9 @@ public class warehouse {
 
     public int price(String product){
         if(products.containsKey(product)){
-            return -99;
+            return products.get(product);
         }else{
-             return products.get(product);
+             return -99;
         }
        
     }
