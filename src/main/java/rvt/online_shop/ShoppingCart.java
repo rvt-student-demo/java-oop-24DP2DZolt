@@ -8,9 +8,14 @@ public class ShoppingCart{
     Map<String, Item> ShoppingCart = new HashMap<>();
     int total = 0;
     public void add(String product, int price){
-        Item item = new Item(product, 1, price);
-        total += item.price();
-        ShoppingCart.put(product, item);
+        if(ShoppingCart.containsKey(product)){
+            ShoppingCart.get(product).increaseQuantity();
+        }else{
+            Item item = new Item(product, 1, price);
+            total += item.price();
+            ShoppingCart.put(product, item);
+        }
+       
     }
 
     public int price(){
