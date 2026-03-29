@@ -5,14 +5,22 @@ import java.util.Map;
 
 public class ShoppingCart{
 
-    Map<String, Integer> ShoppingCart = new HashMap<>();
+    Map<String, Item> ShoppingCart = new HashMap<>();
     int total = 0;
     public void add(String product, int price){
-        ShoppingCart.put(product, price);
-        total += price;
+        Item item = new Item(product, 1, price);
+        total += item.price();
+        ShoppingCart.put(product, item);
     }
 
     public int price(){
         return total;
+    }
+
+    public void print(){
+        
+        for (String product: ShoppingCart.keySet()) {
+            System.out.println(product);
+        } 
     }
 }
