@@ -39,7 +39,9 @@ public class warehouse {
             }
         }
 
-   
+    public Set<String> products(){
+        return products.keySet();
+    }
     }
 
 
