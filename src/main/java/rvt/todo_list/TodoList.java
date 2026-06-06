@@ -1,31 +1,29 @@
 package rvt.todo_list;
-import java.util.ArrayList;
+
+import java.util.*;
+
 public class TodoList {
-    
-    ArrayList<String> tasks;
+    private ArrayList<String> todoList = new ArrayList<>();
 
-    public TodoList() {
-        tasks = new ArrayList<>();
-    }
-    
-    public void add(String add){
-        tasks.add(add);
+    public void add(String item) {
+        todoList.add(item);
     }
 
-    public void print(){
-        for (String task : tasks) {
-            System.out.println((tasks.indexOf(task) + 1) + ": " + task);
+    public void print() {
+        for (int i = 0; i < todoList.size(); i++) {
+            System.out.print(i + 1 + ": ");
+            System.out.println(todoList.get(i));
         }
     }
 
-    public void remove(int number){
-        try {
-            tasks.remove(number - 1); 
-        } catch (Exception e) {
-            System.out.println("Number is out of range or is invalid.");
-        }
-        
+    public void remove(int index) {
+        todoList.remove(index - 1);
     }
 
-
+    public static void main(String[] args) {
+        TodoList list = new TodoList();
+        Scanner scanner = new Scanner(System.in);
+        UserInterface UI = new UserInterface(list, scanner);
+        UI.start();
+    }
 }
